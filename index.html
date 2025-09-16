@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Under Construction</title>
+  <style>
+    :root{
+      --bg1: #0f172a; /* dark navy */
+      --bg2: #0b1220; /* near black */
+      --accent: #ffb020; /* construction yellow */
+      --muted: #9aa7bd;
+      --card: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,176,32,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1), var(--bg2));
+      color:#e6eef8; -webkit-font-smoothing:antialiased;
+      display:flex;align-items:center;justify-content:center;padding:32px;
+    }
+    .container{
+      width:100%;max-width:980px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;padding:36px;box-shadow:0 10px 30px rgba(2,6,23,0.6);display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;
+    }
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr; padding:24px}
+    }
+
+    .left h1{font-size:clamp(28px,4vw,40px);margin:0 0 10px 0}
+    .left p{color:var(--muted);margin:0 0 18px 0;line-height:1.5}
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:10px;color:inherit;text-decoration:none;font-weight:600;backdrop-filter: blur(4px)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent), #ff922b);color:#072028;border:none;box-shadow:0 6px 18px rgba(255,137,24,0.14)}
+
+    .meta{display:flex;gap:18px;margin-top:16px;color:var(--muted);font-size:14px}
+
+    /* Card on the right with illustration */
+    .card{background:var(--card);padding:18px;border-radius:14px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .construction-illustration{width:100%;max-width:360px}
+
+    /* animated gear */
+    .gear{width:64px;height:64px;display:inline-block}
+    .spin{animation:spin 6s linear infinite}
+    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+    /* subtle moving stripes */
+    .card::before{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg, rgba(255,255,255,0.015) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.015) 50%, rgba(255,255,255,0.015) 75%, transparent 75%, transparent);background-size:40px 40px;opacity:0.6;transform:translateX(-20%);animation:stripemove 12s linear infinite}
+    @keyframes stripemove{0%{transform:translateX(-20%)}50%{transform:translateX(0%)}100%{transform:translateX(-20%)}}
+
+    footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <section class="left">
+      <h1>We're building something great 🔧</h1>
+      <p>Sorry for the interruption — our site is currently under construction. We're putting the final touches on things and will be back soon. Meanwhile, you can follow our progress or reach out.</p>
+
+      <div class="actions">
+        <a class="btn primary" href="#">Notify me</a>
+        <a class="btn" href="#">Contact</a>
+        <a class="btn" href="#">Visit blog</a>
+      </div>
+
+      <div class="meta">
+        <div><strong class="spin gear" aria-hidden="true">⚙️</strong> Estimated launch: <strong>Q4 2025</strong></div>
+        <div>Maintenance window: <strong>Sept 20, 2025</strong></div>
+      </div>
+
+      <footer>
+        <div>JP Fashion Design Academy </div>
+        <div>Need a custom design? <a href="#" style="color:var(--accent);text-decoration:none">Get in touch</a></div>
+      </footer>
+    </section>
+
+    <aside class="card">
+      <!-- Inline SVG illustration (no external images required) -->
+      <svg class="construction-illustration" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Construction illustration">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffd27a"/>
+            <stop offset="1" stop-color="#ff9a2e"/>
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" rx="12" fill="none"/>
+
+        <!-- ground -->
+        <rect y="360" width="100%" height="120" fill="rgba(2,6,23,0.6)" />
+
+        <!-- cone -->
+        <g transform="translate(420,320)">
+          <path d="M-18 60 L18 60 L6 0 L-6 0 Z" fill="#ffb020" stroke="#b36c00" stroke-width="2" />
+          <rect x="-18" y="52" width="36" height="8" fill="#fff" opacity="0.9"/>
+        </g>
+
+        <!-- crane base -->
+        <g transform="translate(120,60)">
+          <rect x="40" y="220" width="24" height="80" fill="#232f3d" rx="4"/>
+          <rect x="56" y="60" width="8" height="160" fill="#1f2937"/>
+          <rect x="80" y="60" width="200" height="8" fill="#1f2937" transform="rotate(12 0 0)"/>
+
+          <!-- hook -->
+          <g transform="translate(270,120)">
+            <rect x="-2" y="0" width="4" height="60" fill="#0b1220"/>
+            <path d="M-16 60 C-10 78, 10 78, 16 60" fill="url(#g1)" stroke="#7a3f00" stroke-width="2"/>
+          </g>
+        </g>
+
+        <!-- worker (simple) -->
+        <g transform="translate(310,300)">
+          <circle cx="0" cy="-24" r="18" fill="#fde68a" stroke="#d6a400" stroke-width="2"/>
+          <rect x="-12" y="-6" width="24" height="44" rx="6" fill="#ffb020"/>
+          <rect x="-40" y="34" width="80" height="8" rx="4" fill="#111827" opacity="0.25"/>
+        </g>
+
+        <!-- moving dashed path to indicate activity -->
+        <path d="M40 340 C120 300, 220 340, 320 300 C380 276, 460 320, 540 300" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="6" stroke-dasharray="18 18">
+          <animate attributeName="stroke-dashoffset" from="0" to="-72" dur="6s" repeatCount="indefinite" />
+        </path>
+      </svg>
+    </aside>
+  </main>
+</body>
+</html>
